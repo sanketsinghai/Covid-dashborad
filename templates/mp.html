@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/youtube">YouTube Video Downloader</a></li>
+        <li><a href="/news/all">News</a></li>
+        <li><a href="/mp">MadhyaPradesh Data</a></li>
+        <li><a href="/about">About</a></li>
+
+    </ul>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <h2>COVID 19 Madhya Pradesh Total Cases </h2>
+
+                <table id="customers">
+                    <!-- <th>Confirmed <sup> <span style="color:red">⬆{{inc['c']}}</span></sup></th>
+                    <th>Active <sup> <span style="color: green">⬆{{inc['a']}}</span></sup></th>
+                    <th>Recoverd <sup> <span style="color: green">⬆{{inc['r']}}</span></sup></th>
+                    <th>Deaths <sup> <span style="color: green">⬆{{inc['d']}}</span></sup></th> -->
+                    <th>Confirmed <sup> <span style="color:red">⬆{{ob[4]}}</span></sup></th>
+                    <th>Active <sup> <span style="color: green"></span></sup></th>
+                    <th>Recoverd <sup> <span style="color: green">⬆{{ob[6]}}</span></sup></th>
+                    <th>Deaths <sup> <span style="color: green">⬆{{ob[5]}}</span></sup></th>
+                    <tbody>
+                        <tr>
+                            <td>{{ob[0]}}</td>
+                            <td>{{ob[2]}}</td>
+                            <td>{{ob[3]}}</td>
+                            <td>{{ob[1]}}</td>
+                        </tr>
+                        <!-- <tr>
+                            <td>{{total['c']}} {{ob[0]}}</td>
+                            <td>{{total['a']}} {{ob[2]}}</td>
+                            <td>{{total['r']}}{{ob[3]}}</td>
+                            <td>{{total['d']}} {{ob[1]}}</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>District Wise Data </h2>
+
+                <table id="customers">
+                    <th>States</th>
+                    <th>Confirmed</th>
+                    <th>Active</th>
+                    <th>Recoverd</th>
+                    <th>Deaths</th>
+                    <tbody>
+                        {% for segment,a in j.items() %}
+                        <tr>
+                            <td>{{segment}}</td>
+                            <td>{{ a['confirmed'] }}<sup> <span
+                                        style="color: green">⬆{{a['delta']['confirmed']}}</span></sup></td>
+                            <td>{{ a['active'] }} <sup> <span
+                                        style="color: green">⬆{{a['delta']['confirmed']-a['delta']['recovered']}}</span></sup>
+                            </td>
+                            <td>{{ a['recovered'] }} <sup> <span
+                                        style="color: green">⬆{{a['delta']['recovered']}}</span></sup></td>
+
+                            <td>{{ a['deceased'] }} <sup> <span
+                                        style="color: green">⬆{{a['delta']['deceased']}}</span></sup></td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card">
+                <h2>Stay Home, Be Alert</h2>
+
+            </div>
+        </div>
+        <div class="rightcolumn" style="margin-left: auto; background-color:darkgray;"> 
+            <div class="card">
+              <h4>TOP Article</h4>
+              <img >
+              </div>
+            <div class="card">
+              <h5>Recent Corana updates</h5>
+              <!-- <div class="fakeimg">Software Engineer-1</div><br>
+              <div class="fakeimg">Terralogic Inc.</div><br>
+              <div class="fakeimg">Email:sanketsinghai12@gmail.com</div> -->
+              <div class="col-md-8">
+                {% for i in data %}
+                <div class="card mb-4">
+                   <!-- <img class="card-img-top" src="{{i.image}}" alt="Card image cap">  -->
+                    <div class="card-body">
+                      
+                      <h2 class="card-title">{{i.title}}</h2>
+                      <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p> -->
+                      <a href="{{i.link}}" class="btn btn-primary">Read More →</a>
+                    </div>
+                    <!-- <div class="card-footer text-muted">
+                      Posted on January 1, 2020 by
+                      <a href="#">Start Bootstrap</a>
+                    </div> -->
+                  </div>
+                  {% endfor %}
+                </div>
+            <div class="card">
+                <!-- add some code -->
+            </div>
+          </div>
+        </div>
+            <div class="card">
+                <h3>Collabrate with on github</h3>
+                <p>https://github.com/sanketsinghai/</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

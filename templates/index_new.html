@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="/">Home</a></li>
+  <li><a href="/youtube">YouTube Video Downloader</a></li>
+  <li><a href="/news/all">News</a></li>
+  <li><a href="/mp">MadhyaPradesh Data</a></li>
+  <li><a href="/about">About</a></li>
+
+</ul>
+
+<div class="header" style="background-color:aquamarine;">
+    <h3>COVID 19 India</h3>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+  <div class="leftcolumn">
+      <div class="card">
+        <h2>COVID 19 India Total Cases </h2>
+        <h3 style="color: black;">Last Update</h3><h4 style="color: red;"> {{total[7]}}</h4>
+        <table  class="table table-hover">
+            <th>Confirmed</th>
+            <th>Active</th>
+            <th>Recoverd</th>
+            <th>Deaths</th>
+            <tbody>
+            <tr>
+                <td>{{total[0]}}</td>
+                <td>{{total[2]}}</td>
+                <td>{{total[3]}}</td>
+                <td>{{total[1]}}</td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+    <div class="card">
+      <h2>Statewise Data </h2>
+
+      <table id="customers">
+        <th>States</th>
+        <th>Confirmed</th>
+        <th>Active</th>
+        <th>Recoverd</th>
+        <th>Deaths</th>
+        <th>Last Update</th>
+        <tbody>
+            {% for j in result['statewise'] %}
+              <tr>
+                <td>{{j['state']}}</td>
+                <td>{{ j['confirmed'] }}</td>
+                <td>{{ j['active'] }}</td>
+                <td>{{ j['recovered'] }}</td>
+                
+                <td>{{ j['deaths'] }}</td>
+                <td>{{ j['lastupdatedtime'] }}</td>
+                
+              </tr>
+            {% endfor %}
+          </tbody>
+     </table>
+    </div>
+    <div class="card">
+      <h2>Stay Home, Be Alert</h2>
+
+</div>
+  </div>
+  <div class="rightcolumn" style="margin-left: auto; background-color:darkgray;"> 
+    <div class="card">
+      <h4>TOP Article</h4>
+      <img >
+      </div>
+    <div class="card">
+      <h5>Recent Corana updates</h5>
+      <!-- <div class="fakeimg">Software Engineer-1</div><br>
+      <div class="fakeimg">Terralogic Inc.</div><br>
+      <div class="fakeimg">Email:sanketsinghai12@gmail.com</div> -->
+      <div class="col-md-8">
+        {% for i in data %}
+        <div class="card mb-4">
+           <!-- <img class="card-img-top" src="{{i.image}}" alt="Card image cap">  -->
+            <div class="card-body">
+              
+              <h2 class="card-title">{{i.title}}</h2>
+              <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p> -->
+              <a href="{{i.link}}" class="btn btn-primary">Read More →</a>
+            </div>
+            <!-- <div class="card-footer text-muted">
+              Posted on January 1, 2020 by
+              <a href="#">Start Bootstrap</a>
+            </div> -->
+          </div>
+          {% endfor %}
+        </div>
+    <div class="card">
+        <!-- add some code -->
+    </div>
+  </div>
+</div>
+    </div>
+<div class="footer">
+  <h2>copyright@Spartangroup.pvt.ltd</h2>
+</div>
+
+
+</body>
+</html>
